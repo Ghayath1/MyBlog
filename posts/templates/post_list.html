@@ -1,0 +1,14 @@
+<h1> Blog </h1>
+<a href="{% url 'new_post'%}">add New post</a>
+<hr>
+
+{% for post in all_posts  %}
+
+    <h2><a href="/blog/{{post.id}}"> {{post}}</a></h2>
+    <img src="{{post.image.url}}">
+    <p>{{post.author}}</p>
+    <p>{{post.content}}</p>
+    <p>{{post.publish_date}}</p>
+    <hr>
+
+{% endfor %}

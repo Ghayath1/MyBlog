@@ -1,0 +1,23 @@
+<h3>{{single}}</h3>
+
+<p> {{single.content}}</p>
+<img src={{single.image.url}}>
+
+<p> {{single.author}} </p>
+<p>{{single.active}}</p>
+<p>{{single.publish_date}}</p>
+
+<hr>
+{% for comment in coments %}
+<h4>{{comment.author}}-{{comment}}-{{comment.create_date}}</h4>
+{% endfor %}
+<hr>
+
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="add comment">
+</form>
+<hr>
+<a href="{% url 'edit_post' single.id %}">Edit Post</a>
+<a href="{% url 'delete_post' single.id %}"> Delete Post</a>
